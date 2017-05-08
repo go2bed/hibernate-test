@@ -1,3 +1,5 @@
+*.iml
+.idea
 .gradle
 /build/
 
@@ -10,5 +12,3 @@ gradle-app.setting
 # Cache of project
 .gradletasknamecache
 
-.iml
-.idea
