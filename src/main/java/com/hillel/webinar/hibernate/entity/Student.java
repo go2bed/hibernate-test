@@ -10,13 +10,9 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="STUDENTS")
-public class Student {
+public class Student extends AbstractEntity {
 
-    @Getter
-    @Setter
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+
 
     @Getter
     @Setter

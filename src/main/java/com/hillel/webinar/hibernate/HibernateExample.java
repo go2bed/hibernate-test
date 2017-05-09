@@ -16,9 +16,9 @@ public class HibernateExample {
 
         Transaction transaction = session.beginTransaction();
         Student student = new Student();
-        student.setFirstName("Kvazer");
-        student.setLastName("YY");
-        student.setAge(33);
+        student.setFirstName("Goly");
+        student.setLastName("Troll");
+        student.setAge(22);
 
         session.save(student);
 
