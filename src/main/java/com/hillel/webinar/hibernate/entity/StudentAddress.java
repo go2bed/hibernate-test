@@ -14,17 +14,17 @@ public class StudentAddress {
 
     @Getter
     @Setter
-    @Column(name = "Country")
+    @Column(name = "country")
     private String country;
 
     @Getter
     @Setter
-    @Column(name = "City")
+    @Column(name = "city")
     private String city;
 
     @Getter
     @Setter
-    @Column(name = "StudentAddress")
+    @Column(name = "address")
     private String address;
 
 

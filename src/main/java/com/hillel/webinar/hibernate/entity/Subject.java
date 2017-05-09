@@ -14,7 +14,7 @@ public class Subject extends AbstractEntity {
 
     @Getter
     @Setter
-    @Column(name = "Name")
+    @Column(name = "name")
     private String name;
 
     @Override

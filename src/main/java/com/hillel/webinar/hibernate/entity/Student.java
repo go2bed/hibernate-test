@@ -15,17 +15,17 @@ public class Student extends AbstractEntity {
 
     @Getter
     @Setter
-    @Column(name = "FirstName")
+    @Column(name = "firstName")
     private String firstName;
 
     @Getter
     @Setter
-    @Column(name = "LastNam")
+    @Column(name = "lastName")
     private String lastName;
 
     @Getter
     @Setter
-    @Column(name = "Age")
+    @Column(name = "age")
     private int age;
 
     @Getter

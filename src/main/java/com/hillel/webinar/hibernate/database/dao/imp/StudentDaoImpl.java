@@ -29,7 +29,7 @@ public class StudentDaoImpl implements Dao<Student> {
      * or null and will return new, or current instance of
      * session
      */
-    private Session getCurrentSession() {
+    public Session getCurrentSession() {
         try{
         if (!sessionFactory.getCurrentSession().isOpen() || session == null) {
            return session = sessionFactory.openSession();

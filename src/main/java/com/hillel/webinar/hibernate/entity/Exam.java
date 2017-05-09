@@ -15,18 +15,18 @@ public class Exam extends AbstractEntity {
     @Getter
     @Setter
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Student_ID")
+    @JoinColumn(name = "student_ID")
     private Student student;
 
     @Getter
     @Setter
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "Subject_ID")
-    private Exam exam;
+    @JoinColumn(name = "subject_ID")
+    private Subject subject;
 
     @Getter
     @Setter
-    @Column(name = "Grade")
+    @Column(name = "grade")
     private int grade;
 
 
@@ -35,11 +35,11 @@ public class Exam extends AbstractEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Exam exam1 = (Exam) o;
+        Exam exam = (Exam) o;
 
-        if (grade != exam1.grade) return false;
-        if (student != null ? !student.equals(exam1.student) : exam1.student != null) return false;
-        return exam != null ? exam.equals(exam1.exam) : exam1.exam == null;
+        if (grade != exam.grade) return false;
+        if (student != null ? !student.equals(exam.student) : exam.student != null) return false;
+        return subject != null ? subject.equals(exam.subject) : exam.subject == null;
     }
 
     @Override

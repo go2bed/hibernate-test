@@ -10,6 +10,3 @@ CREATE TABLE EXAMS (
 );
 
 
-INSERT INTO exams(Student_ID, Subject_ID, Grade) VALUES( 1, 1, 5);
-INSERT INTO exams(Student_ID, Subject_ID, Grade) VALUES( 1, 2, 4);
-INSERT INTO exams(Student_ID, Subject_ID, Grade) VALUES( 1, 3, 5);

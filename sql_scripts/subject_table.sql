@@ -4,6 +4,3 @@ CREATE TABLE SUBJECTS (
   PRIMARY KEY (ID)
 );
 
-INSERT INTO subjects(Name) VALUES('History');
-INSERT INTO subjects(Name) VALUES('Math');
-INSERT INTO subjects(Name) VALUES('Biology');
