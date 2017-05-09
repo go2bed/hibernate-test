@@ -2,7 +2,10 @@ package com.hillel.webinar.hibernate;
 
 import com.hillel.webinar.hibernate.database.SessionFactorySingleton;
 import com.hillel.webinar.hibernate.database.dao.imp.StudentDaoImpl;
+import com.hillel.webinar.hibernate.reports.ExamResult;
 import com.hillel.webinar.hibernate.reports.Reports;
+
+import java.util.List;
 
 /**
  *
@@ -26,7 +29,7 @@ public class HibernateExample {
 //        System.out.println(examSet);
 
         Reports reports = new Reports();
-        reports.getExamResults("Zhuk", "Zhuk",studentDao.getCurrentSession());
-
+        List<ExamResult> examResultList = reports.getExamResults("Zhuk", "Zhuk",studentDao.getCurrentSession());
+        System.out.println(examResultList);
     }
 }

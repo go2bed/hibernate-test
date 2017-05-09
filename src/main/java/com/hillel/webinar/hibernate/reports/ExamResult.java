@@ -25,4 +25,13 @@ public class ExamResult {
     @Getter
     @Setter
     private int grade;
+
+    @Override
+    public String toString() {
+        return "ExamResult{" +
+                "lastName='" + lastName + '\'' +
+                ", subjectName='" + subjectName + '\'' +
+                ", grade=" + grade +
+                '}';
+    }
 }
