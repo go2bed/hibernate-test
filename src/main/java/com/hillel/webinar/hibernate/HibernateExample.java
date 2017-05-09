@@ -1,15 +1,16 @@
 package com.hillel.webinar.hibernate;
 
-import com.hillel.webinar.hibernate.dao.imp.StudentDaoImpl;
+import com.hillel.webinar.hibernate.database.SessionFactorySingleton;
+import com.hillel.webinar.hibernate.database.dao.imp.StudentDaoImpl;
 import com.hillel.webinar.hibernate.entity.Student;
 
 /**
  *
  */
 public class HibernateExample {
+    private static  StudentDaoImpl studentDao = new StudentDaoImpl(SessionFactorySingleton.getSessionFactoryInstance());
 
     public static void main(String[] args) {
-        StudentDaoImpl studentDao = new StudentDaoImpl();
         Student student = new Student();
         student.setFirstName("Full");
         student.setLastName("Zhir");
@@ -17,6 +18,7 @@ public class HibernateExample {
         studentDao.save(student);
 
         Student studen2 =  studentDao.getById(5);
+        studen2.setAge(30);
         System.out.println(studen2);
     }
 }

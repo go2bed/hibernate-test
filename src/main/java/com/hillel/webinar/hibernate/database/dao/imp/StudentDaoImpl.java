@@ -1,7 +1,6 @@
-package com.hillel.webinar.hibernate.dao.imp;
+package com.hillel.webinar.hibernate.database.dao.imp;
 
-import com.hillel.webinar.hibernate.SessionFactorySingleton;
-import com.hillel.webinar.hibernate.dao.Dao;
+import com.hillel.webinar.hibernate.database.dao.Dao;
 import com.hillel.webinar.hibernate.entity.Student;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -14,7 +13,11 @@ import java.util.List;
  */
 public class StudentDaoImpl implements Dao<Student> {
 
-    private static SessionFactory sessionFactory = SessionFactorySingleton.getSessionFactoryInstance();
+    private SessionFactory sessionFactory;
+
+    public StudentDaoImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public List<Student> getFullList() {
@@ -41,6 +44,7 @@ public class StudentDaoImpl implements Dao<Student> {
         Session session = sessionFactory.openSession();
         Student student = session.get(Student.class, id);
         session.close();
+        sessionFactory.close();
         return student;
     }
 }

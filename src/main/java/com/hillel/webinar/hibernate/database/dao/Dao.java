@@ -1,4 +1,4 @@
-package com.hillel.webinar.hibernate.dao;
+package com.hillel.webinar.hibernate.database.dao;
 
 import com.hillel.webinar.hibernate.entity.AbstractEntity;
 
