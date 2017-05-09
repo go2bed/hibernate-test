@@ -11,13 +11,14 @@ public class HibernateExample {
     private static  StudentDaoImpl studentDao = new StudentDaoImpl(SessionFactorySingleton.getSessionFactoryInstance());
 
     public static void main(String[] args) {
+
         Student student = new Student();
         student.setFirstName("Full");
         student.setLastName("Zhir");
         student.setAge(22);
         studentDao.save(student);
 
-        Student studen2 =  studentDao.getById(5);
+        Student studen2 =  studentDao.getById(2);
         System.out.println(studen2);
     }
 }

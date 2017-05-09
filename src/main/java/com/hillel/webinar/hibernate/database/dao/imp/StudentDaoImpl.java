@@ -14,9 +14,26 @@ import java.util.List;
 public class StudentDaoImpl implements Dao<Student> {
 
     private SessionFactory sessionFactory;
+    private Session session;
 
     public StudentDaoImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
+    }
+
+    /**
+     * This method will check session at the closing
+     * or null and will return new, or current instance of
+     * session
+     */
+    private Session getCurrentSession() {
+        try {
+            if (!sessionFactory.getCurrentSession().isOpen() || session == null) {
+                return session = sessionFactory.openSession();
+            }
+            return this.sessionFactory.getCurrentSession();
+        } catch (org.hibernate.HibernateException he) {
+            return session = sessionFactory.openSession();
+        }
     }
 
     @Override
@@ -26,12 +43,11 @@ public class StudentDaoImpl implements Dao<Student> {
 
     @Override
     public void save(Student student) {
-        Session session = sessionFactory.openSession();
+        Session session = getCurrentSession();
         Transaction transaction = session.beginTransaction();
         session.save(student);
         transaction.commit();
         session.close();
-        sessionFactory.close();
     }
 
     @Override
@@ -41,10 +57,9 @@ public class StudentDaoImpl implements Dao<Student> {
 
     @Override
     public Student getById(int id) {
-        Session session = sessionFactory.openSession();
+        Session session = getCurrentSession();
         Student student = session.get(Student.class, id);
         session.close();
-        sessionFactory.close();
         return student;
     }
 }
