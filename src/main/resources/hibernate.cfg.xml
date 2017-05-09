@@ -39,6 +39,8 @@
 
         <!-- List of XML mapping files -->
         <mapping class="com.hillel.webinar.hibernate.entity.Student"/>
+        <mapping class="com.hillel.webinar.hibernate.entity.Exam"/>
+        <mapping class="com.hillel.webinar.hibernate.entity.Subject"/>
 
     </session-factory>
 </hibernate-configuration>
