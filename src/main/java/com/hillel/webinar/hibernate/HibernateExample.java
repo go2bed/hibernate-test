@@ -18,7 +18,6 @@ public class HibernateExample {
         studentDao.save(student);
 
         Student studen2 =  studentDao.getById(5);
-        studen2.setAge(30);
         System.out.println(studen2);
     }
 }
