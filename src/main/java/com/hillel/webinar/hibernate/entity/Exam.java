@@ -14,6 +14,12 @@ public class Exam extends AbstractEntity {
 
     @Getter
     @Setter
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Getter
+    @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "Student_ID")
     private Student student;
@@ -43,19 +49,9 @@ public class Exam extends AbstractEntity {
     }
 
     @Override
-    public int hashCode() {
-        int result = student != null ? student.hashCode() : 0;
-        result = 31 * result + (exam != null ? exam.hashCode() : 0);
-        result = 31 * result + grade;
-        return result;
-    }
-
-    @Override
     public String toString() {
         return "Exam{" +
                 "id=" + id +
-                ", student=" + student +
-                ", exam=" + exam +
                 ", grade=" + grade +
                 '}';
     }

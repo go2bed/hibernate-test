@@ -15,6 +15,12 @@ public class Student extends AbstractEntity {
 
     @Getter
     @Setter
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Getter
+    @Setter
     @Column(name = "FirstName")
     private String firstName;
 
@@ -51,15 +57,6 @@ public class Student extends AbstractEntity {
         return studentAddress != null ? studentAddress.equals(student.studentAddress) : student.studentAddress == null;
     }
 
-    @Override
-    public int hashCode() {
-        int result = firstName != null ? firstName.hashCode() : 0;
-        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
-        result = 31 * result + age;
-        result = 31 * result + (studentAddress != null ? studentAddress.hashCode() : 0);
-        return result;
-    }
-
 
     @Override
     public String toString() {
@@ -68,7 +65,7 @@ public class Student extends AbstractEntity {
                 ", id=" + id +
                 ", lastName='" + lastName + '\'' +
                 ", age=" + age +
-                ", studentAddress=" + studentAddress +
+                ", studentAddress=" + studentAddress + "exams" + exams +
                 '}';
     }
 }

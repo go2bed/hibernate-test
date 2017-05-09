@@ -2,15 +2,18 @@ package com.hillel.webinar.hibernate.database.dao.imp;
 
 import com.hillel.webinar.hibernate.database.dao.Dao;
 import com.hillel.webinar.hibernate.entity.Student;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
  *
  */
+@Transactional
 public class StudentDaoImpl implements Dao<Student> {
 
     private SessionFactory sessionFactory;
@@ -26,15 +29,15 @@ public class StudentDaoImpl implements Dao<Student> {
      * session
      */
     private Session getCurrentSession() {
-        try {
-            if (!sessionFactory.getCurrentSession().isOpen() || session == null) {
-                return session = sessionFactory.openSession();
-            }
-            return this.sessionFactory.getCurrentSession();
-        } catch (org.hibernate.HibernateException he) {
-            return session = sessionFactory.openSession();
+        try{
+        if (!sessionFactory.getCurrentSession().isOpen() || session == null) {
+           return session = sessionFactory.openSession();
         }
+        return this.sessionFactory.getCurrentSession();
+    } catch (org.hibernate.HibernateException he) {
+           return session = sessionFactory.openSession();
     }
+}
 
     @Override
     public List<Student> getFullList() {
@@ -59,6 +62,7 @@ public class StudentDaoImpl implements Dao<Student> {
     public Student getById(int id) {
         Session session = getCurrentSession();
         Student student = session.get(Student.class, id);
+        Hibernate.initialize(student.getExams());
         session.close();
         return student;
     }
