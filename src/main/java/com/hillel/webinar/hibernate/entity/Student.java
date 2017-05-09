@@ -15,12 +15,6 @@ public class Student extends AbstractEntity {
 
     @Getter
     @Setter
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Getter
-    @Setter
     @Column(name = "FirstName")
     private String firstName;
 

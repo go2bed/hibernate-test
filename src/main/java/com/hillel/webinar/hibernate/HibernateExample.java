@@ -5,6 +5,7 @@ import com.hillel.webinar.hibernate.database.dao.imp.StudentDaoImpl;
 import com.hillel.webinar.hibernate.entity.Exam;
 import com.hillel.webinar.hibernate.entity.Student;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -21,6 +22,8 @@ public class HibernateExample {
 //        student.setAge(22);
 //        studentDao.save(student);
 
+        List<Student> students = studentDao.getFullList();
+        System.out.println(students);
         Student studen2 =  studentDao.getById(1);
         Set<Exam> examSet = studen2.getExams();
 

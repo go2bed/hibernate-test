@@ -14,12 +14,6 @@ public class Subject extends AbstractEntity {
 
     @Getter
     @Setter
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-
-    @Getter
-    @Setter
     @Column(name = "Name")
     private String name;
 

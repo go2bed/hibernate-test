@@ -6,6 +6,7 @@ import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -41,7 +42,10 @@ public class StudentDaoImpl implements Dao<Student> {
 
     @Override
     public List<Student> getFullList() {
-        return null;
+        Session session = getCurrentSession();
+        Query query = session.createQuery("from Student");
+        List students = query.getResultList();
+        return students;
     }
 
     @Override
