@@ -8,7 +8,7 @@ import javax.persistence.*;
 /**
  *
  */
-
+@Entity
 @Table(name = "EXAMS")
 public class Exam extends AbstractEntity {
 
