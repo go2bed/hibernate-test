@@ -6,11 +6,11 @@ import org.hibernate.cfg.Configuration;
 /**
  *
  */
-public class SessionFactorySingletone {
+public class SessionFactorySingleton {
 
     private static SessionFactory sessionFactory;
 
-    public static SessionFactory getSessionFatoryInstance() {
+    public static SessionFactory getSessionFactoryInstance() {
         if (sessionFactory == null) {
             sessionFactory = new Configuration()
                     .configure()

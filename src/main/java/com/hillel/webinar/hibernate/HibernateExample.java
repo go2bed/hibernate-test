@@ -1,9 +1,7 @@
 package com.hillel.webinar.hibernate;
 
+import com.hillel.webinar.hibernate.dao.imp.StudentDaoImpl;
 import com.hillel.webinar.hibernate.entity.Student;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 
 /**
  *
@@ -11,21 +9,14 @@ import org.hibernate.Transaction;
 public class HibernateExample {
 
     public static void main(String[] args) {
-        SessionFactory sessionFactory = SessionFactorySingletone.getSessionFatoryInstance();
-        Session session = sessionFactory.openSession();
-
-        Transaction transaction = session.beginTransaction();
+        StudentDaoImpl studentDao = new StudentDaoImpl();
         Student student = new Student();
-        student.setFirstName("Goly");
-        student.setLastName("Troll");
+        student.setFirstName("Full");
+        student.setLastName("Zhir");
         student.setAge(22);
+        studentDao.save(student);
 
-        session.save(student);
-
-        transaction.commit();
-
-        session.close();
-        sessionFactory.close();
+        Student studen2 =  studentDao.getById(5);
+        System.out.println(studen2);
     }
-
 }

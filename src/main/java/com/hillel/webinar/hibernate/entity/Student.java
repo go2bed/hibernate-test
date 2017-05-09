@@ -12,8 +12,6 @@ import javax.persistence.*;
 @Table(name="STUDENTS")
 public class Student extends AbstractEntity {
 
-
-
     @Getter
     @Setter
     @Column(name = "FirstName")
